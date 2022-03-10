@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div id="app">
+
+    </div>
+
+
+
+    <script src="https://unpkg.com/vue@next"></script>
+    <script>
+        Vue.createApp({
+            data() {
+                return {
+                    show: true,
+                    content:"hello world",
+                }
+            },
+            methods: {
+                handleclick(){
+                    //this.show = !this.show;显示或者隐藏
+                    this.content=this.content.split("").reverse().join("")
+                }
+            },
+            template:`<div>
+                <span v-if="show">{{content}}</span>
+                <button v-on:click="handleclick">显示/隐藏</button>
+                </div>`
+        }).mount("#app");
+    </script>
+</body>
+</html>
