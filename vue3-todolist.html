@@ -11,23 +11,20 @@
 
     </div>
     
-    <script src="vue.global.js"></script>
+    <script src="https://unpkg.com/vue@next"></script>
     <script>
         Vue.createApp({
             data(){
                 return {
                     color: "black",
                     input: "",
-                    list: [
-                        {a:"aa",isshow:true},
-                        {a:"bb",isshow:false},
-                        {a:"cc",isshow:true}
-                    ], 
+                    list: ["1","2","3","4"], 
                 };
             },
             methods: {
                 a(){
-                    this.list.push({a:this.input,isshow:false})
+                    this.list.push(this.input)
+
                     this.input=""
                 }
             },
@@ -36,8 +33,8 @@
                 <button v-on:click="a">增加</button>
                 <ul>
                     <li v-for="(item,index) of list">
-                        <span v-if="item.isshow" style="color:green">{{item.a}}</span>
-                        <span v-if="!item.isshow" style="color:red">{{item.a}}</span>
+                        <span v-if="item>10" style="color:green">{{item}}</span>
+                        <span v-if="item<10" style="color:red">{{item}}</span>
                     </li>
                 </ul>
                 </div>`,

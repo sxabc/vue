@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img{
+            width: 200px;
+            height: 200px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <script src="https://unpkg.com/vue@next"></script>
+
+    <div id="app"></div>
+ 
+    <script>
+        const app = Vue.createApp({
+            data() {
+                return {
+                    list: ["1.jpg", "2.jpg", "3.jpg","4.jpg"],
+                }
+            },
+            methods: {
+
+            },
+            template: `
+        <div>
+
+            <url>
+               <todo-item v-for="(item,index) of list" v-bind:content="item"/>
+            </url>
+        </div>
+        `
+        })
+
+        app.component('todo-item', {
+            props: ['content','index'],
+            template: '<li><img :src="content"></li>'
+        })
+
+        app.mount('#app')
+    </script>
+
+</body>
+
+</html>
