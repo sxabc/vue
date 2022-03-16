@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+
+    </div>
+    
+    <script src="vue.global.js"></script>
+    <script>
+        Vue.createApp({
+            data(){
+                return {
+                    color: "black",
+                    input: "",
+                    list: [
+                        {a:"aa",isshow:true},
+                        {a:"bb",isshow:false},
+                        {a:"cc",isshow:true}
+                    ], 
+                };
+            },
+            methods: {
+                a(){
+                    this.list.push({a:this.input,isshow:false})
+                    this.input=""
+                }
+            },
+            template:`<div>
+                <input v-model='input'>
+                <button v-on:click="a">增加</button>
+                <ul>
+                    <li v-for="(item,index) of list">
+                        <span v-if="item.isshow" style="color:green">{{item.a}}</span>
+                        <span v-if="!item.isshow" style="color:red">{{item.a}}</span>
+                    </li>
+                </ul>
+                </div>`,
+        }).mount("#app");
+    </script>
+</body>
+</html>
