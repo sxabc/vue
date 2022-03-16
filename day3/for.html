@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <ul>
+            <li v-for="(item,index) in players">
+                {{index}}------{{item.id}}------{{item.name}}------{{item.age}}
+            </li>
+        </ul>
+        <ul>
+            <li v-for=" ( val, key, i) in bestplayer">
+                {{val}} --- {{key}} --- {{i}}
+            </li>
+        </ul>
+            <h3 v-for="i in 10">这是第{{i}}个h3标签</h3>
+    </div>
+
+    <script src="vue.global.js"></script>
+    <script>
+        let app = Vue.createApp({
+            data() {
+            return {
+                message:"vue",
+                players:[
+                    {id:1,name:"a",age:1},
+                    {id:2,name:"b",age:2},
+                    {id:3,name:"c",age:3},
+                    {id:4,name:"d",age:4},
+                ],
+                bestplayer: {name: "张三",age: 33}
+            };
+            },
+        });
+        let vm = app.mount('#app');
+    </script>
+</body>
+
+<html>
